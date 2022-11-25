@@ -1,25 +1,27 @@
 name: Snake
+
 on:
   schedule:
     - cron: "0 */6 * * *"
 
   workflow_dispatch:
 
-jobs:  build:
-  build:
+jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
+
       - uses: actions/checkout@v2
+
       - uses: Platane/snk@master
         id: snake-gif
         with:
-          github_user_name: MOA-YAD
+          github_user_name: moa-yad
           gif_out_path: dist/hmm.gif
           svg_out_path: dist/hmm.svg
-
       - run: git status
+
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
